@@ -1,0 +1,56 @@
+﻿<Window x:Class="wpf_binding_3a.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_binding_3a"
+        mc:Ignorable="d"
+        Title="Bindowanie danych" Height="450" Width="800">
+    <StackPanel>
+        <Slider
+            Minimum="12"
+            Maximum="50"
+            Value="{Binding
+            ElementName=wpisanyTekstTextBox,Path=Text
+            }"
+            x:Name="rozmiarTekstuSlider"
+            Margin="20"
+             />
+        <TextBlock
+            FontSize="{Binding 
+            ElementName=rozmiarTekstuSlider,
+            Path=Value
+            }"
+            Margin="20"
+            Text="Testowanie wiązania danych"
+            x:Name="tekstTextBlock"
+            >
+           
+        </TextBlock>
+        <Label Content="Rozmiar tekstu:"
+               FontSize="12"
+               Foreground="Blue"
+               ></Label>
+        <TextBlock
+            Text="{Binding ElementName=tekstTextBlock,
+            Path=FontSize}"
+            FontSize="20"
+            />
+        <Label FontSize="20"
+               Background="Aqua"
+               >
+            Podaj nowy rozmiar tekstu
+        </Label>
+        <TextBox
+            x:Name="wpisanyTekstTextBox"
+            Margin="20"
+            Padding="10"
+            >
+            
+        </TextBox>
+    </StackPanel>
+    <!-- Bindowanie wiązanie
+    ElementName -> x:Name z elementu którego bierzemy coś
+    Path -> nazwa atrybutu odczytywanego z elementu
+    -->
+</Window>
